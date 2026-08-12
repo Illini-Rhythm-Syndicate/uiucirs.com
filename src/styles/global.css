@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --color-irs-navy: #004A73;
+  --color-irs-gold: #EFCE5A;
+  --color-irs-blue: #0884C6;
+  --color-irs-teal: #2F90B4;
+  --color-irs-ink: #001B2B;
+}
