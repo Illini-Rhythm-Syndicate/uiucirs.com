@@ -1,0 +1,41 @@
+---
+import logo from "../assets/logo.png";
+import { Image } from "astro:assets";
+import HeaderNavButton from "./HeaderNavButton.astro";
+
+const navLinks = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Freeplays", href: "/freeplays" },
+  { title: "Project Teams", href: "/teams" },
+];
+---
+
+<header class="flex items-center justify-between px-6 py-4">
+  <a href="/" class="flex items-center gap-2">
+    <Image src={logo} alt="Illini Rhythm Syndicate" class="w-16 h-16" />
+    <div class="flex flex-col">
+      <span class="font-bold font-display text-xl">
+        Illini Rhythm Syndicate
+      </span>
+      <span class="font-display text-lg leading-tight"
+        >UIUC's rhythm game club</span
+      >
+    </div>
+  </a>
+
+  <nav class="flex items-center justify-between gap-16 ml-auto">
+    {
+      navLinks.map((link) => (
+        <HeaderNavButton title={link.title} href={link.href} />
+      ))
+    }
+    <a
+      href="https://discord.gg/q9yuXE2PMu"
+      target="_blank"
+      class="font-display text-2xl font-semibold"
+    >
+      Join Discord
+    </a>
+  </nav>
+</header>

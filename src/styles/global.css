@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-@theme {
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
   --color-irs-navy: #004A73;
   --color-irs-gold: #EFCE5A;
   --color-irs-blue: #0884C6;

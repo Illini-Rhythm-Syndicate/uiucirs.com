@@ -1,14 +1,19 @@
 ---
 import "../styles/global.css";
+import { Font } from "astro:assets";
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
     <title>Illini Rhythm Syndicate</title>
   </head>
-  <body class="bg-irs-ink min-h-screen text-white">
+  <body class="min-h-screen">
+    <Header />
     <slot />
   </body>
 </html>
