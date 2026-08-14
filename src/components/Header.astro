@@ -13,7 +13,12 @@ const navLinks = [
 
 <header class="flex items-center justify-between px-6 py-4 border-b-3">
   <a href="/" class="flex items-center gap-2 group">
-    <Image src={logo} alt="Illini Rhythm Syndicate" class="w-16 h-16" />
+    <Image
+      src={logo}
+      alt="Illini Rhythm Syndicate"
+      class="w-16 h-16"
+      priority
+    />
     <div class="flex flex-col">
       <span
         class="font-bold font-display text-xl group-hover:text-irs-teal transition"
@@ -27,7 +32,7 @@ const navLinks = [
     </div>
   </a>
 
-  <nav class="flex items-center justify-between gap-16 ml-auto">
+  <nav class="flex items-center justify-between gap-4 ml-auto">
     {
       navLinks.map((link) => (
         <HeaderNavButton title={link.title} href={link.href} />

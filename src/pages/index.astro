@@ -1,5 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import irisMiku from "../assets/iris-miku.png";
 ---
 
-<Layout />
+<Layout>
+  <div class="flex w-full items-center justify-between py-24">
+    <div class="flex flex-col items-start gap-6">
+      <span
+        class="font-display text-lg -rotate-2 font-semibold px-3 py-1 border-3 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
+        >I'm simply overjoyed</span
+      >
+      <h1 class="font-display text-6xl font-bold">
+        We build and play
+        <br />rhythm games.
+      </h1>
+      <p class="font-body text-xl max-w-md">
+        Illini Rhythm Syndicate is UIUC's club for rhythm game enthusiasts.
+      </p>
+      <a
+        href="https://discord.gg/q9yuXE2PMu"
+        target="_blank"
+        class="font-display text-xl font-bold px-6 py-3 border-3 border-black rounded-full transition shadow-[4px_4px_0_0_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
+      >
+        Join the Discord
+      </a>
+    </div>
+
+    <Image
+      src={irisMiku}
+      alt="Illini Rhythm Syndicate club photo"
+      class="aspect-3/4 w-full max-w-sm shrink-0 rounded-3xl border-3 border-black object-cover shadow-[6px_6px_0_0_rgba(0,0,0,1)] transition hover:rotate-2"
+      priority
+    />
+  </div>
+</Layout>
