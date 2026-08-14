@@ -12,3 +12,18 @@
   --color-irs-teal: #2F90B4;
   --color-irs-ink: #001B2B;
 }
+
+@theme {
+  --animate-letter-bounce: letter-bounce 500ms ease-in-out both;
+
+  @keyframes letter-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    35%,
+    55% {
+      transform: translateY(-0.35em);
+    }
+  }
+}

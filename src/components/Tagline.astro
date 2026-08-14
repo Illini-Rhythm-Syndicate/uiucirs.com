@@ -1,0 +1,37 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<span
+  class="tagline group font-display text-lg -rotate-2 font-semibold px-3 py-1 border-3 border-black rounded-full shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
+>
+  {
+    [...text].map((char, i) => (
+      <span
+        class="inline-block whitespace-pre motion-safe:group-data-bouncing:animate-letter-bounce"
+        style={`animation-delay: ${i * 35}ms`}
+      >
+        {char}
+      </span>
+    ))
+  }
+</span>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".tagline").forEach((tagline) => {
+    const lastLetter = tagline.lastElementChild;
+    if (!lastLetter) return;
+
+    tagline.addEventListener("mouseenter", () => {
+      tagline.dataset.bouncing = "";
+    });
+
+    lastLetter.addEventListener("animationend", () => {
+      delete tagline.dataset.bouncing;
+    });
+  });
+</script>
