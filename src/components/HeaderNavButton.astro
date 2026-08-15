@@ -2,14 +2,20 @@
 interface Props {
   title: string;
   href: string;
+  active?: boolean;
 }
 
-const { title, href } = Astro.props;
+const { title, href, active = false } = Astro.props;
 ---
 
 <a
   href={href}
-  class="font-display text-xl font-semibold px-4 py-2 border-3 border-transparent rounded-full transition hover:border-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
+  class:list={[
+    "font-display text-xl font-semibold px-4 py-2 border-3 rounded-full transition hover:border-black hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0_0_rgba(0,0,0,1)]",
+    active
+      ? "border-black -translate-x-0.5 -translate-y-0.5 shadow-[2px_2px_0_0_rgba(0,0,0,1)]"
+      : "border-transparent",
+  ]}
 >
   {title}
 </a>

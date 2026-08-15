@@ -9,6 +9,8 @@ const navLinks = [
   { title: "Freeplays", href: "/freeplays" },
   { title: "Project Teams", href: "/teams" },
 ];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class="flex items-center justify-between px-6 py-4 border-b-3">
@@ -35,7 +37,11 @@ const navLinks = [
   <nav class="flex items-center justify-between gap-4 ml-auto">
     {
       navLinks.map((link) => (
-        <HeaderNavButton title={link.title} href={link.href} />
+        <HeaderNavButton
+          title={link.title}
+          href={link.href}
+          active={(link.href.replace(/\/$/, "") || "/") === currentPath}
+        />
       ))
     }
     <a
