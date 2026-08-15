@@ -1,0 +1,48 @@
+---
+const games = [
+  "maimai",
+  "CHUNITHM",
+  "ONGEKI",
+  "beatmania IIDX",
+  "SOUND VOLTEX",
+  "pop'n music",
+  "Taiko no Tatsujin",
+  "WACCA",
+  "Groove Coaster",
+  "Project DIVA",
+  "Project SEKAI",
+  "BanG Dream!",
+  "Arcaea",
+  "osu!",
+];
+
+const copyClass =
+  "flex w-max items-center gap-4 pr-6 py-2 font-display text-lg font-bold tracking-wider whitespace-nowrap text-irs-gold";
+---
+
+<div
+  class="relative left-1/2 mt-12 mb-8 w-screen -translate-x-1/2 -rotate-1 overflow-hidden border-y-3 border-irs-ink bg-irs-navy"
+>
+  <div class="flex w-max motion-safe:animate-tape">
+    <ul class={copyClass}>
+      {
+        games.map((game) => (
+          <>
+            <li>{game}</li>
+            <li aria-hidden="true">✦</li>
+          </>
+        ))
+      }
+    </ul>
+    <ul class={copyClass} aria-hidden="true">
+      {
+        games.map((game) => (
+          <>
+            <li>{game}</li>
+            <li>✦</li>
+          </>
+        ))
+      }
+    </ul>
+  </div>
+</div>

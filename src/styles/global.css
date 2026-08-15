@@ -28,6 +28,16 @@
 @theme {
   --animate-drift: drift 8s ease-in-out infinite;
   --animate-letter-bounce: letter-bounce 500ms ease-in-out both;
+  --animate-tape: tape 36s linear infinite;
+
+  @keyframes tape {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
   @keyframes drift {
     0%,
