@@ -25,4 +25,7 @@ export default defineConfig({
   ],
 
   integrations: [react()],
+  
+  site: 'https://illini-rhythm-syndicate.github.io',
+  base: '/uiucirs.com',
 });
