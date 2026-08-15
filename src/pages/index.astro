@@ -3,15 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Tagline from "../components/Tagline.astro";
 import Events from "../components/Events.astro";
+import Floaters from "../components/Floaters.astro";
 import irisMiku from "../assets/iris-miku.png";
 ---
 
 <Layout>
-  <div class="flex w-full items-center justify-between py-24">
+  <div class="relative isolate flex w-full items-center justify-between py-24">
+    <Floaters />
     <div class="flex flex-col items-start gap-6">
-      <Tagline text="I'M SIMPLY OVERJOYED" />
+      <Tagline text="ILLINI RHYTHM SYNDICATE" />
       <h1 class="font-display text-6xl font-bold">
-        We build and play
+        We <span class="text-irs-pink-deep">build</span> and <span
+          class="text-irs-cyan-deep">play</span
+        >
         <br />rhythm games.
       </h1>
       <p class="font-body text-xl max-w-md">

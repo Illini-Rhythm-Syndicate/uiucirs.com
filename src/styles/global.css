@@ -26,7 +26,18 @@
 }
 
 @theme {
+  --animate-drift: drift 8s ease-in-out infinite;
   --animate-letter-bounce: letter-bounce 500ms ease-in-out both;
+
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-6deg);
+    }
+    50% {
+      transform: translateY(-14px) rotate(8deg);
+    }
+  }
 
   @keyframes letter-bounce {
     0%,

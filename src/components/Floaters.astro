@@ -1,0 +1,90 @@
+---
+import { BsMusicNote, BsMusicNoteBeamed } from "react-icons/bs";
+import { FaStar } from "react-icons/fa6";
+
+const floaters = [
+  {
+    Icon: BsMusicNote,
+    position: "top-[6%] right-[42%] size-[34px] text-irs-pink-deep",
+    duration: "7s",
+    delay: "0s",
+  },
+  {
+    Icon: BsMusicNoteBeamed,
+    position: "top-[6%] right-[1%] size-[34px] text-irs-cyan-deep",
+    duration: "9s",
+    delay: "1s",
+  },
+  {
+    Icon: BsMusicNote,
+    position: "bottom-[13%] left-[2%] size-[34px] text-irs-gold",
+    duration: "8s",
+    delay: "0.5s",
+  },
+  {
+    Icon: FaStar,
+    position: "top-[45%] right-[46%] size-[24px] text-irs-green",
+    duration: "6s",
+    delay: "2s",
+  },
+  {
+    Icon: BsMusicNoteBeamed,
+    position: "bottom-[6%] right-[30%] size-[34px] text-irs-lav-deep",
+    duration: "10s",
+    delay: "1.4s",
+  },
+  {
+    Icon: FaStar,
+    position: "top-[16%] left-[4%] size-[20px] text-irs-gold",
+    duration: "7.5s",
+    delay: "0.8s",
+  },
+  {
+    Icon: BsMusicNoteBeamed,
+    position: "bottom-[28%] right-[44%] size-[28px] text-irs-cyan",
+    duration: "8.5s",
+    delay: "2.4s",
+  },
+  {
+    Icon: BsMusicNoteBeamed,
+    position: "top-[9%] left-[12%] size-[30px] text-irs-green",
+    duration: "7.8s",
+    delay: "2.1s",
+  },
+  {
+    Icon: BsMusicNote,
+    position: "bottom-[4%] right-[8%] size-[32px] text-irs-navy",
+    duration: "9.2s",
+    delay: "0.6s",
+  },
+  {
+    Icon: FaStar,
+    position: "bottom-[19%] left-[39%] size-[18px] text-irs-cyan-deep",
+    duration: "6.8s",
+    delay: "1.6s",
+  },
+  {
+    Icon: BsMusicNote,
+    position: "bottom-[3%] left-[22%] size-[30px] text-irs-coral",
+    duration: "9.5s",
+    delay: "0.3s",
+  },
+  {
+    Icon: FaStar,
+    position: "top-[10%] left-[28%] size-[18px] text-irs-pink",
+    duration: "6.5s",
+    delay: "1.8s",
+  },
+];
+---
+
+<div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+  {
+    floaters.map(({ Icon, position, duration, delay }) => (
+      <Icon
+        className={`absolute opacity-50 motion-safe:animate-drift ${position}`}
+        style={{ animationDuration: duration, animationDelay: delay }}
+      />
+    ))
+  }
+</div>
