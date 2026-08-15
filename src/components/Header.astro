@@ -2,6 +2,7 @@
 import logo from "../assets/logo.png";
 import { Image } from "astro:assets";
 import HeaderNavButton from "./HeaderNavButton.astro";
+import { FaBars, FaXmark } from "react-icons/fa6";
 
 const navLinks = [
   { title: "Home", href: "/" },
@@ -11,47 +12,111 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const discordClass =
+  "font-display font-bold border-3 border-irs-ink rounded-full bg-irs-pink text-irs-ink transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-pink-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]";
 ---
 
-<header
-  class="flex items-center justify-between px-6 py-4 border-b-3 border-irs-ink bg-irs-paper"
->
-  <a href="/" class="flex items-center gap-2 group">
-    <Image
-      src={logo}
-      alt="Illini Rhythm Syndicate"
-      class="w-16 h-16"
-      priority
-    />
-    <div class="flex flex-col">
-      <span
-        class="font-bold font-display text-xl group-hover:text-irs-cyan-deep transition"
-      >
-        Illini Rhythm Syndicate
-      </span>
-      <span
-        class="font-display text-lg leading-tight group-hover:text-irs-cyan-deep transition"
-        >UIUC's rhythm game club</span
-      >
-    </div>
-  </a>
-
-  <nav class="flex items-center justify-between gap-4 ml-auto">
-    {
-      navLinks.map((link) => (
-        <HeaderNavButton
-          title={link.title}
-          href={link.href}
-          active={(link.href.replace(/\/$/, "") || "/") === currentPath}
+<header class="group border-b-3 border-irs-ink bg-irs-lav" data-nav-root>
+  <div
+    class="mx-auto w-full max-w-5xl px-5 sm:px-8 xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-360"
+  >
+    <div class="flex items-center justify-between gap-3 py-3 sm:py-4">
+      <a href="/" class="group/logo flex min-w-0 items-center gap-2">
+        <Image
+          src={logo}
+          alt="Illini Rhythm Syndicate"
+          class="size-12 shrink-0 sm:size-14 lg:size-16"
+          priority
         />
-      ))
-    }
-    <a
-      href="https://discord.gg/q9yuXE2PMu"
-      target="_blank"
-      class="font-display text-xl font-bold px-6 py-3 border-3 border-irs-ink rounded-full bg-irs-pink text-irs-ink transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-pink-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+        <div class="flex min-w-0 flex-col">
+          <span
+            class="font-display text-base leading-tight font-bold transition group-hover/logo:text-irs-cyan-deep sm:text-lg lg:text-xl"
+          >
+            Illini Rhythm Syndicate
+          </span>
+          <span
+            class="font-display text-sm leading-tight transition group-hover/logo:text-irs-cyan-deep sm:text-base lg:text-lg"
+            >UIUC's rhythm game club</span
+          >
+        </div>
+      </a>
+
+      <nav class="ml-auto hidden items-center gap-2 lg:flex xl:gap-4">
+        {
+          navLinks.map((link) => (
+            <HeaderNavButton
+              title={link.title}
+              href={link.href}
+              active={(link.href.replace(/\/$/, "") || "/") === currentPath}
+            />
+          ))
+        }
+        <a
+          href="https://discord.gg/q9yuXE2PMu"
+          target="_blank"
+          class:list={[
+            discordClass,
+            "px-5 py-2.5 text-lg xl:px-6 xl:py-3 xl:text-xl",
+          ]}
+        >
+          Join the Discord
+        </a>
+      </nav>
+
+      <button
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
+        class="flex size-11 shrink-0 items-center justify-center rounded-full border-3 border-irs-ink bg-irs-cream text-irs-ink shadow-[2px_2px_0_0_var(--color-irs-ink)] transition hover:bg-white lg:hidden"
+      >
+        <FaBars className="size-5 group-data-open:hidden" />
+        <FaXmark className="hidden size-5 group-data-open:block" />
+      </button>
+    </div>
+
+    <nav
+      id="mobile-nav"
+      class="hidden flex-col gap-2 pb-4 group-data-open:flex lg:hidden!"
     >
-      Join the Discord
-    </a>
-  </nav>
+      {
+        navLinks.map((link) => (
+          <HeaderNavButton
+            title={link.title}
+            href={link.href}
+            active={(link.href.replace(/\/$/, "") || "/") === currentPath}
+            class="w-full text-center"
+          />
+        ))
+      }
+      <a
+        href="https://discord.gg/q9yuXE2PMu"
+        target="_blank"
+        class:list={[discordClass, "w-full px-6 py-3 text-center text-lg"]}
+      >
+        Join the Discord
+      </a>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-nav-root]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+
+  if (root && toggle) {
+    toggle.addEventListener("click", () => {
+      const open = root.hasAttribute("data-open");
+      root.toggleAttribute("data-open", !open);
+      toggle.setAttribute("aria-expanded", String(!open));
+    });
+
+    window.matchMedia("(min-width: 64rem)").addEventListener("change", (e) => {
+      if (!e.matches) return;
+      root.removeAttribute("data-open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  }
+</script>

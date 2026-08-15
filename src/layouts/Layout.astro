@@ -7,14 +7,16 @@ import Header from "../components/Header.astro";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />
     <title>Illini Rhythm Syndicate</title>
   </head>
-  <body class="min-h-screen overflow-x-hidden bg-irs-paper text-irs-ink">
+  <body class="min-h-dvh overflow-x-hidden bg-irs-paper text-irs-ink">
     <Header />
-    <div class="max-w-5xl justify-center flex flex-col mx-auto">
+    <div
+      class="mx-auto flex w-full max-w-5xl flex-col justify-center px-5 sm:px-8 xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-360"
+    >
       <slot />
     </div>
   </body>

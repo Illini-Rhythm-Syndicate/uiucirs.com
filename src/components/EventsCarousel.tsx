@@ -10,7 +10,7 @@ export interface EventCard {
 const GAP = 24;
 
 const buttonClass =
-  "shrink-0 flex items-center justify-center w-10 h-10 border-3 border-irs-ink rounded-full bg-irs-cream text-irs-ink transition shadow-[2px_2px_0_0_var(--color-irs-ink)] hover:bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-irs-ink)] disabled:opacity-30 disabled:pointer-events-none";
+  "shrink-0 hidden sm:flex items-center justify-center w-10 h-10 border-3 border-irs-ink rounded-full bg-irs-cream text-irs-ink transition shadow-[2px_2px_0_0_var(--color-irs-ink)] hover:bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-irs-ink)] disabled:opacity-30 disabled:pointer-events-none";
 
 export default function EventsCarousel({ events }: { events: EventCard[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -65,16 +65,16 @@ export default function EventsCarousel({ events }: { events: EventCard[] }) {
 
       <div
         ref={scrollerRef}
-        className="grid grid-flow-col auto-cols-[100%] sm:auto-cols-[calc((100%-1.5rem)/2)] lg:auto-cols-[calc((100%-3rem)/3)] gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden min-w-0 flex-1 pb-3 pr-2"
+        className="grid grid-flow-col auto-cols-[85%] sm:auto-cols-[calc((100%-1.5rem)/2)] lg:auto-cols-[calc((100%-3rem)/3)] 3xl:auto-cols-[calc((100%-4.5rem)/4)] gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-none [&::-webkit-scrollbar]:hidden min-w-0 flex-1 pb-3 pr-2"
       >
         {events.map((event) => (
           <div
             key={event.title}
-            className="snap-start flex flex-col gap-2 p-6 border-3 border-irs-ink rounded-3xl bg-irs-cream text-irs-ink shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+            className="snap-start flex flex-col gap-2 p-5 sm:p-6 border-3 border-irs-ink rounded-3xl bg-irs-cream text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
           >
-            <span className="font-display text-lg text-irs-brown font-semibold">{event.date}</span>
-            <h3 className="font-display text-2xl font-bold">{event.title}</h3>
-            <p className="font-body text-base">{event.description}</p>
+            <span className="font-display text-base sm:text-lg text-irs-brown font-semibold">{event.date}</span>
+            <h3 className="font-display text-xl sm:text-2xl font-bold">{event.title}</h3>
+            <p className="font-body text-sm sm:text-base">{event.description}</p>
           </div>
         ))}
       </div>

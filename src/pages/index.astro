@@ -9,23 +9,31 @@ import irisMiku from "../assets/iris-miku.png";
 ---
 
 <Layout>
-  <div class="relative isolate flex w-full items-center justify-between py-24">
+  <div
+    class="relative isolate flex w-full flex-col items-start gap-8 py-10 sm:py-14 md:flex-row md:items-center md:justify-between md:gap-8 md:py-24 lg:gap-12"
+  >
     <Floaters />
-    <div class="flex flex-col items-start gap-6">
+    <div
+      class="flex w-full min-w-0 flex-col items-start gap-4 sm:gap-5 md:w-auto lg:gap-6"
+    >
       <Tagline text="ILLINI RHYTHM SYNDICATE" />
-      <h1 class="font-display text-6xl font-bold">
+      <h1
+        class="font-display text-4xl font-bold sm:text-5xl lg:text-5xl xl:text-6xl 3xl:text-7xl"
+      >
         We <span class="text-irs-pink-deep">build</span> and <span
           class="text-irs-cyan-deep">play</span
-        >
-        <br />rhythm games.
+        >{" "}
+        <br class="hidden sm:inline" />rhythm games.
       </h1>
-      <p class="font-body text-xl max-w-md">
+      <p
+        class="font-body text-base max-w-md sm:text-xl lg:text-xl 2xl:text-2xl"
+      >
         Illini Rhythm Syndicate is UIUC's club for rhythm game enthusiasts.
       </p>
       <a
         href="https://discord.gg/q9yuXE2PMu"
         target="_blank"
-        class="font-display text-xl font-bold px-6 py-3 border-3 border-irs-ink rounded-full bg-irs-pink text-irs-ink transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-pink-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+        class="font-display text-base px-5 py-2.5 sm:text-lg lg:text-xl lg:px-6 lg:py-3 font-bold border-3 border-irs-ink rounded-full bg-irs-pink text-irs-ink transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-pink-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
       >
         Join the Discord
       </a>
@@ -34,7 +42,7 @@ import irisMiku from "../assets/iris-miku.png";
     <Image
       src={irisMiku}
       alt="Iris-chan"
-      class="aspect-3/4 w-full max-w-sm shrink-0 rounded-3xl border-3 border-irs-ink bg-white object-cover shadow-[6px_6px_0_0_var(--color-irs-ink)] transition duration-300 rotate-2 hover:rotate-0 hover:scale-105"
+      class="aspect-3/4 w-full max-w-52 shrink-0 self-center rounded-3xl border-3 border-irs-ink bg-white object-cover shadow-[6px_6px_0_0_var(--color-irs-ink)] transition duration-300 rotate-2 hover:rotate-0 hover:scale-105 sm:max-w-60 md:w-2/5 md:max-w-sm 2xl:max-w-md"
       priority
     />
   </div>

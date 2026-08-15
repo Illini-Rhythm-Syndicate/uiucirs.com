@@ -8,6 +8,10 @@
 }
 
 @theme {
+  --breakpoint-3xl: 120rem;
+}
+
+@theme {
   --color-irs-paper: #faf5fd;
   --color-irs-lav: #e9ddf5;
   --color-irs-lav-deep: #cdb4e3;
