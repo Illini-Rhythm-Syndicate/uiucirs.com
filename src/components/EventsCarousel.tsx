@@ -10,7 +10,7 @@ export interface EventCard {
 const GAP = 24;
 
 const buttonClass =
-  "shrink-0 flex items-center justify-center w-10 h-10 border-3 border-black rounded-full transition shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_rgba(0,0,0,1)] disabled:opacity-30 disabled:pointer-events-none";
+  "shrink-0 flex items-center justify-center w-10 h-10 border-3 border-irs-ink rounded-full bg-irs-cream text-irs-ink transition shadow-[2px_2px_0_0_var(--color-irs-ink)] hover:bg-white hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_0_var(--color-irs-ink)] disabled:opacity-30 disabled:pointer-events-none";
 
 export default function EventsCarousel({ events }: { events: EventCard[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -70,9 +70,9 @@ export default function EventsCarousel({ events }: { events: EventCard[] }) {
         {events.map((event) => (
           <div
             key={event.title}
-            className="snap-start flex flex-col gap-2 p-6 border-3 border-black rounded-3xl shadow-[6px_6px_0_0_rgba(0,0,0,1)]"
+            className="snap-start flex flex-col gap-2 p-6 border-3 border-irs-ink rounded-3xl bg-irs-cream text-irs-ink shadow-[6px_6px_0_0_var(--color-irs-ink)]"
           >
-            <span className="font-display text-lg text-irs-teal font-semibold">{event.date}</span>
+            <span className="font-display text-lg text-irs-brown font-semibold">{event.date}</span>
             <h3 className="font-display text-2xl font-bold">{event.title}</h3>
             <p className="font-body text-base">{event.description}</p>
           </div>

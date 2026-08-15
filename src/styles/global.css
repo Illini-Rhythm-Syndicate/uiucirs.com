@@ -5,12 +5,24 @@
 @theme inline {
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+}
 
-  --color-irs-navy: #004A73;
-  --color-irs-gold: #EFCE5A;
-  --color-irs-blue: #0884C6;
-  --color-irs-teal: #2F90B4;
-  --color-irs-ink: #001B2B;
+@theme {
+  --color-irs-paper: #faf5fd;
+  --color-irs-lav: #e9ddf5;
+  --color-irs-lav-deep: #cdb4e3;
+  --color-irs-ink: #332a4d;
+  --color-irs-navy: #24406e;
+  --color-irs-navy-deep: #1a2f52;
+  --color-irs-gold: #f7c948;
+  --color-irs-pink: #f4a7c8;
+  --color-irs-pink-deep: #e573a8;
+  --color-irs-cyan: #45c2d8;
+  --color-irs-cyan-deep: #2a9db3;
+  --color-irs-green: #7cc47f;
+  --color-irs-coral: #e95f44;
+  --color-irs-brown: #7c4c37;
+  --color-irs-cream: #fffdf6;
 }
 
 @theme {
