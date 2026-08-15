@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import arcadeTrip from "../assets/arcade-trip-1.jpg";
+import freeplayFront from "../assets/freeplay-front.jpg";
+import uiCon from "../assets/ui-con-4.jpg";
+---
+
+<div class="flex w-full flex-col gap-5 py-10 sm:gap-6 sm:py-12">
+  <div class="flex flex-col gap-1.5">
+    <h2 class="font-display text-3xl font-bold sm:text-4xl 2xl:text-5xl">
+      Where You'll Find Us
+    </h2>
+    <p class="font-body text-base sm:text-lg 2xl:text-xl">
+      Some snapshots of what we get up to.
+    </p>
+  </div>
+
+  <div class="grid gap-5 sm:gap-6 md:grid-cols-3">
+    <figure
+      class="-rotate-1 flex flex-col gap-3 rounded-3xl border-3 border-irs-ink bg-irs-cream p-3 text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] transition duration-300 hover:rotate-0 hover:scale-[1.02] sm:p-4 sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+    >
+      <Image
+        src={arcadeTrip}
+        alt="A dozen club members crowded together for a group selfie in front of arcade cabinets on an arcade trip"
+        class="aspect-4/3 w-full rounded-2xl border-3 border-irs-ink bg-white object-cover object-center"
+        widths={[400, 800, 1200]}
+        sizes="(min-width: 768px) 33vw, 100vw"
+        loading="lazy"
+      />
+      <figcaption
+        class="font-display px-1 pb-1 text-center text-sm font-semibold sm:text-base"
+      >
+        Arcade trips: we go to an arcade and play.
+      </figcaption>
+    </figure>
+
+    <figure
+      class="rotate-3 flex flex-col gap-3 rounded-3xl border-3 border-irs-ink bg-irs-cream p-3 text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] transition duration-300 hover:rotate-0 hover:scale-[1.02] sm:p-4 sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+    >
+      <Image
+        src={freeplayFront}
+        alt="Two wooden club-built rhythm game controllers with colored arcade buttons set up on a table draped in an Illini Rhythm Syndicate banner"
+        class="aspect-4/3 w-full rounded-2xl border-3 border-irs-ink bg-white object-cover object-[50%_60%]"
+        widths={[400, 800, 1200]}
+        sizes="(min-width: 768px) 33vw, 100vw"
+        loading="lazy"
+      />
+      <figcaption
+        class="font-display px-1 pb-1 text-center text-sm font-semibold sm:text-base"
+      >
+        Freeplay in the rec room, on controllers we built ourselves
+      </figcaption>
+    </figure>
+
+    <figure
+      class="-rotate-1 flex flex-col gap-3 rounded-3xl border-3 border-irs-ink bg-irs-cream p-3 text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] transition duration-300 hover:rotate-0 hover:scale-[1.02] sm:p-4 sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+    >
+      <Image
+        src={uiCon}
+        alt="Members running a rhythm game setup with monitors and custom controllers at a UI-CON booth while attendees watch"
+        class="aspect-4/3 w-full rounded-2xl border-3 border-irs-ink bg-white object-cover object-center"
+        widths={[400, 800, 1200]}
+        sizes="(min-width: 768px) 33vw, 100vw"
+        loading="lazy"
+      />
+      <figcaption
+        class="font-display px-1 pb-1 text-center text-sm font-semibold sm:text-base"
+      >
+        UI-CON with our setups open to all attendees
+      </figcaption>
+    </figure>
+  </div>
+</div>
