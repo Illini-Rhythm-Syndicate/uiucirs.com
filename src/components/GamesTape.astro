@@ -17,13 +17,13 @@ const games = [
 ];
 
 const copyClass =
-  "flex w-max items-center gap-3 pr-4 py-2 font-display text-base font-bold tracking-wider whitespace-nowrap text-irs-gold sm:gap-4 sm:pr-6 sm:text-lg 2xl:text-xl";
+  "tape-copy flex w-max shrink-0 items-center gap-3 pr-4 py-2 font-display text-base font-bold tracking-wider whitespace-nowrap text-irs-gold sm:gap-4 sm:pr-6 sm:text-lg 2xl:text-xl";
 ---
 
 <div
-  class="relative left-1/2 mt-10 mb-6 w-screen -translate-x-1/2 -rotate-1 overflow-hidden border-y-3 border-irs-ink bg-irs-navy sm:mt-12 sm:mb-8"
+  class="tape relative left-1/2 mt-10 mb-6 w-screen -translate-x-1/2 -rotate-1 overflow-hidden border-y-3 border-irs-ink bg-irs-navy sm:mt-12 sm:mb-8"
 >
-  <div class="flex w-max motion-safe:animate-tape">
+  <div class="tape-track flex w-max motion-safe:animate-tape">
     <ul class={copyClass}>
       {
         games.map((game) => (
@@ -46,3 +46,41 @@ const copyClass =
     </ul>
   </div>
 </div>
+
+<script>
+  // The track scrolls by exactly one copy per cycle, so it only looks seamless
+  // while the copies trailing the first one span the whole tape. Clone copies
+  // until that holds, otherwise wide screens run out of games mid-cycle.
+  const fitCopies = (tape: HTMLElement) => {
+    const track = tape.querySelector<HTMLElement>(".tape-track");
+    const original = track?.firstElementChild as HTMLElement | null;
+    if (!track || !original) return;
+
+    const copyWidth = original.offsetWidth;
+    if (!copyWidth) return;
+
+    const copies = Math.max(2, Math.ceil(tape.offsetWidth / copyWidth) + 1);
+
+    while (track.children.length < copies) {
+      const clone = original.cloneNode(true) as HTMLElement;
+      clone.setAttribute("aria-hidden", "true");
+      track.append(clone);
+    }
+    while (track.children.length > copies) {
+      track.lastElementChild!.remove();
+    }
+
+    track.style.setProperty("--tape-copies", String(copies));
+  };
+
+  document.querySelectorAll<HTMLElement>(".tape").forEach((tape) => {
+    const original = tape.querySelector<HTMLElement>(".tape-copy");
+    if (!original) return;
+
+    // Watches the tape for viewport changes and a copy for width changes from
+    // font loading or responsive type scaling.
+    const observer = new ResizeObserver(() => fitCopies(tape));
+    observer.observe(tape);
+    observer.observe(original);
+  });
+</script>
