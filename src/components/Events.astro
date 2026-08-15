@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import EventsCarousel from "./EventsCarousel";
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+
+const events = (await getCollection("events"))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .map((event) => ({
+    title: event.data.title,
+    description: event.data.description,
+    date: dateFormatter.format(event.data.date),
+  }));
+---
+
+<div class="flex flex-col gap-6 py-12 w-full">
+  <h2 class="font-display text-4xl font-bold">Upcoming Events</h2>
+  <EventsCarousel events={events} client:visible />
+</div>
