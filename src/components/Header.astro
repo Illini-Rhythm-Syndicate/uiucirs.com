@@ -2,7 +2,7 @@
 import logo from "../assets/logo.png";
 import { Image } from "astro:assets";
 import HeaderNavButton from "./HeaderNavButton.astro";
-import { FaBars, FaXmark } from "react-icons/fa6";
+import { FaBars, FaXmark, FaDiscord } from "react-icons/fa6";
 
 const navLinks = [
   { title: "Home", href: "/" },
@@ -14,7 +14,7 @@ const navLinks = [
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 const discordClass =
-  "font-display font-bold border-3 border-irs-ink rounded-full bg-irs-pink text-irs-ink transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-pink-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]";
+  "font-display inline-flex items-center justify-center gap-2 font-bold border-3 border-irs-ink rounded-full bg-irs-blurple text-irs-cream transition shadow-[4px_4px_0_0_var(--color-irs-ink)] hover:bg-irs-blurple-deep hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]";
 ---
 
 <header class="group border-b-3 border-irs-ink bg-irs-lav" data-nav-root>
@@ -60,6 +60,7 @@ const discordClass =
             "px-5 py-2.5 text-lg xl:px-6 xl:py-3 xl:text-xl",
           ]}
         >
+          <FaDiscord className="size-5 shrink-0 xl:size-6" aria-hidden="true" />
           Join the Discord
         </a>
       </nav>
@@ -96,6 +97,7 @@ const discordClass =
         target="_blank"
         class:list={[discordClass, "w-full px-6 py-3 text-center text-lg"]}
       >
+        <FaDiscord className="size-5 shrink-0" aria-hidden="true" />
         Join the Discord
       </a>
     </nav>

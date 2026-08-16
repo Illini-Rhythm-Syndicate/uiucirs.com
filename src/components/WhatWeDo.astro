@@ -66,7 +66,7 @@ const activities = [
   <ul class="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
     {
       activities.map(({ Icon, color, title, description }) => (
-        <li class="flex flex-col gap-2 rounded-3xl border-3 border-irs-ink bg-irs-cream p-5 text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] sm:p-6 sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]">
+        <li class="flex flex-col gap-2 rounded-3xl border-3 border-irs-ink bg-irs-cream p-5 text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--color-irs-ink)]">
           <h3 class="flex items-center gap-2.5 font-display text-xl font-bold sm:text-2xl">
             <Icon className={`shrink-0 size-5 sm:size-6 ${color}`} />
             {title}
