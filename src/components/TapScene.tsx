@@ -72,7 +72,7 @@ export default function TapScene({ discordUrl }: { discordUrl: string }) {
               <div className="relative flex aspect-[1.585] w-full flex-none items-center justify-center overflow-hidden rounded-[10px] bg-white">
                 <div className="absolute top-1/2 left-1/2 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-irs-cyan transition-colors duration-250 group-data-[state=near]:border-irs-gold group-data-[state=ok]:border-irs-green" />
                 <div className="absolute top-1/2 left-1/2 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-irs-cyan opacity-0 group-data-[state=go]:animate-tap-ring group-data-[state=ok]:animate-tap-ring" />
-                <span className="font-display relative text-[2.7cqw] font-bold tracking-[0.1em] uppercase text-irs-ink opacity-[0.72]">
+                <span className="font-display relative text-[2.4cqw] font-bold tracking-[0.1em] uppercase text-irs-ink opacity-[0.72]">
                   Touch here
                 </span>
               </div>
