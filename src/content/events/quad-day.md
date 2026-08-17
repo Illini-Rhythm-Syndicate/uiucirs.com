@@ -1,5 +1,5 @@
 ---
 title: Quad Day
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+description: Come say hi! at our booth on the Quad and try some of the controller we bring.
 date: 2026-08-23
 ---
