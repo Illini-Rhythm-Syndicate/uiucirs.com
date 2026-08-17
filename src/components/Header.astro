@@ -3,14 +3,8 @@ import logo from "../assets/logo.png";
 import { Image } from "astro:assets";
 import HeaderNavButton from "./HeaderNavButton.astro";
 import { FaBars, FaXmark, FaDiscord } from "react-icons/fa6";
+import { navLinks } from "../data/nav";
 import { withBase } from "../utils/paths";
-
-const navLinks = [
-  { title: "Home", href: withBase("/") },
-  { title: "About", href: withBase("/about") },
-  { title: "Freeplays", href: withBase("/freeplays") },
-  { title: "Project Teams", href: withBase("/teams") },
-];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 

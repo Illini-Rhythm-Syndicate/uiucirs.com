@@ -1,0 +1,80 @@
+---
+import logo from "../assets/logo.png";
+import { Image } from "astro:assets";
+import { navLinks } from "../data/nav";
+import { withBase } from "../utils/paths";
+import { FaDiscord } from "react-icons/fa6";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto bg-irs-navy text-irs-cream">
+  <div
+    class="mx-auto w-full max-w-5xl px-5 sm:px-8 xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-360"
+  >
+    <div
+      class="flex flex-col gap-8 py-10 sm:py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-10"
+    >
+      <a href={withBase("/")} class="group/logo flex w-fit items-center gap-2">
+        <Image
+          src={logo}
+          alt="Illini Rhythm Syndicate"
+          class="size-12 shrink-0 sm:size-14 lg:size-16"
+          loading="lazy"
+        />
+        <div class="flex min-w-0 flex-col">
+          <span
+            class="font-display text-base leading-tight font-bold transition group-hover/logo:text-irs-gold sm:text-lg lg:text-xl"
+          >
+            Illini Rhythm Syndicate
+          </span>
+          <span
+            class="font-display text-sm leading-tight transition group-hover/logo:text-irs-gold sm:text-base lg:text-lg"
+            >UIUC's rhythm game club</span
+          >
+        </div>
+      </a>
+
+      <nav
+        class="flex flex-wrap items-center gap-x-6 gap-y-2"
+        aria-label="Footer"
+      >
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="font-body text-base transition hover:text-irs-gold sm:text-lg"
+            >
+              {link.title}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex shrink-0 flex-col items-start gap-3 lg:items-end">
+        <p class="font-body text-base text-irs-cream/80 sm:text-lg">
+          Questions, or ready to join?
+        </p>
+        <a
+          href="https://discord.gg/q9yuXE2PMu"
+          target="_blank"
+          class="font-display inline-flex items-center justify-center gap-2 rounded-full border-3 border-irs-ink bg-irs-blurple px-5 py-2.5 text-lg font-bold text-irs-cream shadow-[4px_4px_0_0_var(--color-irs-ink)] transition hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-irs-blurple-deep hover:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
+        >
+          <FaDiscord className="size-5 shrink-0" aria-hidden="true" />
+          Join the Discord
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-1 border-t-3 border-irs-cream/20 py-5 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p class="font-body text-sm text-irs-cream/70 sm:text-base">
+        &copy; {year} Illini Rhythm Syndicate
+      </p>
+      <p class="font-body text-sm text-irs-cream/70 sm:text-base">
+        University of Illinois Urbana-Champaign
+      </p>
+    </div>
+  </div>
+</footer>

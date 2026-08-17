@@ -2,6 +2,12 @@
 // Full-bleed lavender band with scalloped top and bottom edges: lavender discs
 // on a 26px grid, bulging up from below the strip on top and down from above
 // it on the bottom.
+interface Props {
+  bottom?: boolean;
+}
+
+const { bottom = true } = Astro.props;
+
 const scallopSize = "background-size: 26px 26px;";
 const scallopTop = `background-image: radial-gradient(circle at 13px 30px, var(--color-irs-lav) 14px, transparent 15px); ${scallopSize}`;
 const scallopBottom = `background-image: radial-gradient(circle at 13px -4px, var(--color-irs-lav) 14px, transparent 15px); ${scallopSize}`;
@@ -18,5 +24,9 @@ const scallopBottom = `background-image: radial-gradient(circle at 13px -4px, va
     </div>
   </div>
 
-  <div class="h-6.5 w-full" style={scallopBottom} aria-hidden="true"></div>
+  {
+    bottom && (
+      <div class="h-6.5 w-full" style={scallopBottom} aria-hidden="true" />
+    )
+  }
 </section>
