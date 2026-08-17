@@ -35,6 +35,29 @@
   --animate-drift: drift 8s ease-in-out infinite;
   --animate-letter-bounce: letter-bounce 500ms ease-in-out both;
   --animate-tape: tape 36s linear infinite;
+  --animate-tap-bob: tap-bob 3.4s ease-in-out infinite;
+  --animate-tap-ring: tap-ring 700ms ease-out 2;
+
+  @keyframes tap-bob {
+    0%,
+    100% {
+      transform: rotate(-8deg) translateY(0);
+    }
+    50% {
+      transform: rotate(-6deg) translateY(-9px);
+    }
+  }
+
+  @keyframes tap-ring {
+    from {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0.9;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(2.5);
+      opacity: 0;
+    }
+  }
 
   @keyframes tape {
     from {
