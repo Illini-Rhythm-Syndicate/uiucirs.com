@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  // Placement, size, and tilt for this instance.
+  class: string;
+  // Width of the emitted asset; keep it around 2x the rendered width.
+  width?: number;
+  duration?: string;
+  delay?: string;
+}
+
+const {
+  src,
+  class: placement,
+  width = 300,
+  duration = "5.2s",
+  delay = "0s",
+} = Astro.props;
+---
+
+<Image
+  src={src}
+  alt=""
+  aria-hidden="true"
+  width={width}
+  format="webp"
+  loading="lazy"
+  class:list={[
+    "sticker-cut pointer-events-none absolute h-auto motion-safe:animate-sticker-bob",
+    placement,
+  ]}
+  style={`animation-duration: ${duration}; animation-delay: ${delay};`}
+/>

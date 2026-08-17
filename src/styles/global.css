@@ -37,6 +37,17 @@
   --animate-tape: tape 36s linear infinite;
   --animate-tap-bob: tap-bob 3.4s ease-in-out infinite;
   --animate-tap-ring: tap-ring 700ms ease-out 2;
+  --animate-sticker-bob: sticker-bob 5.2s ease-in-out infinite;
+
+  @keyframes sticker-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
 
   @keyframes tap-bob {
     0%,
@@ -88,4 +99,14 @@
       transform: translateY(-0.35em);
     }
   }
+}
+
+/* Die-cut sticker look for transparent PNGs: a ring of white drop-shadows
+   stands in for a cut border, then a light shadow lifts it off the page. */
+@utility sticker-cut {
+  filter: drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff)
+    drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff)
+    drop-shadow(1.8px 1.8px 0 #fff) drop-shadow(-1.8px -1.8px 0 #fff)
+    drop-shadow(-1.8px 1.8px 0 #fff) drop-shadow(1.8px -1.8px 0 #fff)
+    drop-shadow(3px 5px 7px rgba(51, 42, 77, 0.2));
 }

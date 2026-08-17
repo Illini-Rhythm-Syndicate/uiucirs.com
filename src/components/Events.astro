@@ -1,7 +1,10 @@
 ---
 import { getCollection } from "astro:content";
 import EventsCarousel from "./EventsCarousel";
+import MascotSticker from "./MascotSticker.astro";
 import ScallopBand from "./ScallopBand.astro";
+import irisMaimai from "../assets/iris-maimai.png";
+import irisOngeki from "../assets/iris-ongeki.png";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -19,13 +22,31 @@ const events = (await getCollection("events"))
 ---
 
 <ScallopBand>
-  <div class="flex flex-col gap-1.5">
-    <h2 class="font-display text-3xl font-bold sm:text-4xl 2xl:text-5xl">
-      Upcoming Events
-    </h2>
-    <p class="font-body text-base sm:text-lg 2xl:text-xl">
-      Come check us out at one of the events below!
-    </p>
+  <div class="relative flex flex-col gap-5 sm:gap-6">
+    <MascotSticker
+      src={irisMaimai}
+      width={400}
+      class="-top-24 left-[58%] hidden w-28 -rotate-3 lg:block 2xl:-top-38 2xl:w-36 3xl:-top-52 3xl:w-44"
+      duration="5.6s"
+      delay="-1.2s"
+    />
+    <MascotSticker
+      src={irisOngeki}
+      width={400}
+      class="-top-26 left-[72%] hidden w-28 rotate-3 lg:block 2xl:-top-38 2xl:w-36 3xl:-top-52 3xl:w-44"
+      duration="5.6s"
+      delay="-1.2s"
+    />
+
+    <div class="flex flex-col gap-1.5">
+      <h2 class="font-display text-3xl font-bold sm:text-4xl 2xl:text-5xl">
+        Upcoming Events
+      </h2>
+      <p class="font-body text-base sm:text-lg 2xl:text-xl">
+        Come check us out at one of the events below!
+      </p>
+    </div>
+
+    <EventsCarousel events={events} client:visible />
   </div>
-  <EventsCarousel events={events} client:visible />
 </ScallopBand>

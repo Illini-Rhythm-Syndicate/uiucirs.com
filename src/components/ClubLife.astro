@@ -1,11 +1,21 @@
 ---
 import { Image } from "astro:assets";
+import MascotSticker from "./MascotSticker.astro";
+import irisArcade from "../assets/iris-arcade.png";
 import arcadeTrip from "../assets/arcade-trip-1.jpg";
 import freeplayFront from "../assets/freeplay-front.jpg";
 import uiCon from "../assets/ui-con-4.jpg";
 ---
 
-<div class="flex w-full flex-col gap-5 py-10 sm:gap-6 sm:py-12">
+<div class="relative flex w-full flex-col gap-5 py-10 sm:gap-6 sm:py-12">
+  <MascotSticker
+    src={irisArcade}
+    width={320}
+    class="bottom-12 -left-24 hidden w-24 -rotate-2 xl:block 2xl:-left-32 2xl:w-32 3xl:-left-40 3xl:w-40"
+    duration="5.7s"
+    delay="-1.4s"
+  />
+
   <div class="flex flex-col gap-1.5">
     <h2 class="font-display text-3xl font-bold sm:text-4xl 2xl:text-5xl">
       Where You'll Find Us
