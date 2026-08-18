@@ -57,24 +57,32 @@ export default function TapScene({ discordUrl }: { discordUrl: string }) {
       >
         <div className="@container relative aspect-[1.68] w-full cursor-pointer">
           <div
-            className="absolute top-1/2 right-0 w-[56.75%] -translate-y-1/2 rounded-[26px] border-3 border-irs-ink bg-linear-to-b from-[#43434f] to-[#23232c] p-[7%] shadow-[7px_7px_0_0_var(--color-irs-ink)]"
+            className="absolute top-1/2 right-0 w-[56.75%] -translate-y-1/2 rounded-[26px] border-3 border-irs-ink bg-irs-navy p-[7%] shadow-[7px_7px_0_0_var(--color-irs-ink)]"
             aria-hidden="true"
           >
-            <div className="absolute top-[7%] right-[9%] aspect-square w-[7%] rounded-full border-2 border-black/45 bg-[#4a4a55] transition-[background-color,box-shadow] duration-250 group-data-[state=near]:bg-irs-gold group-data-[state=near]:shadow-[0_0_12px_3px_rgba(247,201,72,0.8)] group-data-[state=go]:bg-irs-gold group-data-[state=go]:shadow-[0_0_12px_3px_rgba(247,201,72,0.8)] group-data-[state=ok]:bg-irs-green group-data-[state=ok]:shadow-[0_0_12px_3px_rgba(124,196,127,0.85)]" />
+            <div className="absolute top-[4%] right-[5%] aspect-square w-[7%] rounded-full border-2 border-irs-ink bg-[#4a4a55] transition-[background-color,box-shadow] duration-250 group-data-[state=near]:bg-irs-gold group-data-[state=near]:shadow-[0_0_0_4px_rgba(247,201,72,0.4)] group-data-[state=go]:bg-irs-gold group-data-[state=go]:shadow-[0_0_0_4px_rgba(247,201,72,0.4)] group-data-[state=ok]:bg-irs-green group-data-[state=ok]:shadow-[0_0_0_4px_rgba(124,196,127,0.45)]" />
 
-            <div className="flex flex-col gap-[2cqw] rounded-[14px] bg-[#15151c] p-[8%]">
-              <div className="flex aspect-[3.75] w-full flex-none items-center justify-center overflow-hidden rounded-[5px] border border-black bg-linear-to-b from-[#1d2f42] to-[#0c1420]">
+            <div className="flex flex-col gap-[2cqw] rounded-[14px] bg-irs-navy-deep p-[8%]">
+              <div className="flex aspect-[3.75] w-full flex-none items-center justify-center overflow-hidden rounded-[6px] border-2 border-irs-ink bg-irs-ink">
                 <span className="font-display text-[3.1cqw] font-bold tracking-[0.14em] whitespace-nowrap text-irs-cyan transition-colors duration-200 group-data-[state=near]:text-irs-gold group-data-[state=go]:text-irs-gold group-data-[state=ok]:text-irs-green">
                   {COPY[state].screen}
                 </span>
               </div>
 
-              <div className="relative flex aspect-[1.585] w-full flex-none items-center justify-center overflow-hidden rounded-[10px] bg-white">
-                <div className="absolute top-1/2 left-1/2 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-irs-cyan transition-colors duration-250 group-data-[state=near]:border-irs-gold group-data-[state=ok]:border-irs-green" />
-                <div className="absolute top-1/2 left-1/2 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-irs-cyan opacity-0 group-data-[state=go]:animate-tap-ring group-data-[state=ok]:animate-tap-ring" />
-                <span className="font-display relative text-[2.4cqw] font-bold tracking-[0.1em] uppercase text-irs-ink opacity-[0.72]">
-                  Touch here
-                </span>
+              <div className="relative flex aspect-[1.585] w-full flex-none items-center justify-center overflow-hidden rounded-[10px] border-2 border-irs-ink bg-irs-cream">
+                <svg
+                  viewBox="0 0 100 100"
+                  className="h-[62%] w-auto -rotate-2 text-irs-cyan transition-colors duration-250 group-data-[state=near]:text-irs-gold group-data-[state=go]:text-irs-gold group-data-[state=ok]:text-irs-green"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                >
+                  <circle cx="32" cy="50" r="5.5" fill="currentColor" stroke="none" />
+                  <path d="M46 35 A 20 20 0 0 1 46.5 64" strokeWidth="7" />
+                  <path d="M55 27 A 32 32 0 0 1 54.5 73" strokeWidth="6.4" />
+                  <path d="M63 19 A 44 44 0 0 1 62 81" strokeWidth="5.8" />
+                </svg>
+                <div className="absolute top-1/2 left-1/2 aspect-square h-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border-3 border-irs-gold opacity-0 group-data-[state=go]:animate-tap-ring group-data-[state=ok]:animate-tap-ring group-data-[state=ok]:border-irs-green" />
               </div>
             </div>
           </div>
