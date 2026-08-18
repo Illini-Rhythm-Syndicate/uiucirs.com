@@ -5,6 +5,7 @@ export interface EventCard {
   title: string;
   description: string;
   date: string;
+  time?: string;
 }
 
 const GAP = 24;
@@ -72,7 +73,10 @@ export default function EventsCarousel({ events }: { events: EventCard[] }) {
             key={event.title}
             className="snap-start flex flex-col gap-2 p-5 sm:p-6 border-3 border-irs-ink rounded-3xl bg-irs-cream text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] sm:shadow-[6px_6px_0_0_var(--color-irs-ink)]"
           >
-            <span className="font-display text-base sm:text-lg text-irs-brown font-semibold">{event.date}</span>
+            <span className="font-display text-base sm:text-lg text-irs-brown font-semibold">
+              {event.date}
+              {event.time ? ` @ ${event.time}` : ""}
+            </span>
             <h3 className="font-display text-xl sm:text-2xl font-bold">{event.title}</h3>
             <p className="font-body text-sm sm:text-base">{event.description}</p>
           </div>

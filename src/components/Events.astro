@@ -18,6 +18,7 @@ const events = (await getCollection("events"))
     title: event.data.title,
     description: event.data.description,
     date: dateFormatter.format(event.data.date),
+    time: event.data.time,
   }));
 ---
 
