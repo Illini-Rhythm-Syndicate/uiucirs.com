@@ -1,0 +1,100 @@
+---
+import { FaUser, FaDiscord } from "react-icons/fa6";
+
+const team = [
+  {
+    name: "Member One",
+    username: "member-one",
+    role: "President",
+    accent: "bg-irs-pink",
+  },
+  {
+    name: "Member Two",
+    username: "member-two",
+    role: "Vice President",
+    accent: "bg-irs-gold",
+  },
+  {
+    name: "Member Three",
+    username: "member-three",
+    role: "Treasurer",
+    accent: "bg-irs-cyan",
+  },
+  {
+    name: "Member Four",
+    username: "member-four",
+    role: "Secretary",
+    accent: "bg-irs-green",
+  },
+  {
+    name: "Member Five",
+    username: "member-five",
+    role: "Events Lead",
+    accent: "bg-irs-lav-deep",
+  },
+  {
+    name: "Member Six",
+    username: "member-six",
+    role: "Engineering Lead",
+    accent: "bg-irs-pink",
+  },
+  {
+    name: "Member Seven",
+    username: "member-seven",
+    role: "Tournament Lead",
+    accent: "bg-irs-gold",
+  },
+  {
+    name: "Member Eight",
+    username: "member-eight",
+    role: "Media Lead",
+    accent: "bg-irs-cyan",
+  },
+];
+---
+
+<div class="flex w-full flex-col gap-5 pt-10 pb-36 sm:gap-6 sm:pt-12 sm:pb-40">
+  <div class="flex flex-col gap-1.5">
+    <h2 class="font-display text-3xl font-bold sm:text-4xl 2xl:text-5xl">
+      Meet the Team
+    </h2>
+    <p class="font-body text-base sm:text-lg 2xl:text-xl">
+      The people you'll meet in the Discord.
+    </p>
+  </div>
+
+  <ul class="flex flex-wrap justify-center gap-6 sm:gap-8">
+    {
+      team.map(({ name, username, role, accent }) => (
+        <li
+          class="group relative z-0 hover:z-20 focus-within:z-20"
+          tabindex="0"
+        >
+          <div
+            class:list={[
+              "flex size-24 items-center justify-center rounded-full border-3 border-irs-ink text-irs-ink shadow-[4px_4px_0_0_var(--color-irs-ink)] transition duration-300 group-hover:scale-110 group-focus-within:scale-110 sm:size-26",
+              accent,
+            ]}
+          >
+            <FaUser className="size-9 sm:size-10" aria-hidden="true" />
+          </div>
+
+          <div class="pointer-events-none absolute top-full left-1/2 mt-4 w-52 -translate-x-1/2 translate-y-2 scale-95 rounded-3xl border-3 border-irs-ink bg-irs-cream p-4 text-center opacity-0 shadow-[6px_6px_0_0_var(--color-irs-ink)] transition duration-300 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100">
+            <p class="font-display text-base font-bold">{name}</p>
+            <p class="font-body mt-0.5 flex items-center justify-center gap-1.5 text-sm text-irs-navy">
+              <FaDiscord className="size-4 shrink-0" aria-hidden="true" />
+              {username}
+            </p>
+            <p class="font-display mt-2 inline-block rounded-full border-3 border-irs-ink bg-irs-gold px-3 py-0.5 text-sm font-semibold shadow-[2px_2px_0_0_var(--color-irs-ink)]">
+              {role}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="font-body text-center text-sm opacity-75 sm:text-base">
+    Hover or tap a portrait to see who's who.
+  </p>
+</div>
