@@ -1,7 +1,6 @@
 ---
 import logo from "../assets/logo.png";
 import { Image } from "astro:assets";
-import { navLinks } from "../data/nav";
 import { withBase } from "../utils/paths";
 import { FaDiscord } from "react-icons/fa6";
 
@@ -34,22 +33,6 @@ const year = new Date().getFullYear();
           >
         </div>
       </a>
-
-      <nav
-        class="flex flex-wrap items-center gap-x-6 gap-y-2"
-        aria-label="Footer"
-      >
-        {
-          navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="font-body text-base transition hover:text-irs-gold sm:text-lg"
-            >
-              {link.title}
-            </a>
-          ))
-        }
-      </nav>
 
       <div class="flex shrink-0 flex-col items-start gap-3 lg:items-end">
         <p class="font-body text-base text-irs-cream/80 sm:text-lg">
