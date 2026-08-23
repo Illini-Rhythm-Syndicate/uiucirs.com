@@ -10,9 +10,15 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
   day: "numeric",
   year: "numeric",
+  timeZone: "UTC",
 });
 
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Chicago",
+}).format(new Date());
+
 const events = (await getCollection("events"))
+  .filter((event) => event.data.date.toISOString().slice(0, 10) >= today)
   .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
   .map((event) => ({
     title: event.data.title,
@@ -45,6 +51,14 @@ const events = (await getCollection("events"))
       </h2>
     </div>
 
-    <EventsCarousel events={events} client:visible />
+    {
+      events.length > 0 ? (
+        <EventsCarousel events={events} client:visible />
+      ) : (
+        <p class="font-body text-base sm:text-lg 2xl:text-xl">
+          Nothing on the calendar right now, check our Discord for updates.
+        </p>
+      )
+    }
   </div>
 </ScallopBand>
