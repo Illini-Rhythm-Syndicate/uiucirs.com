@@ -6,7 +6,7 @@ const COPY: Record<TapState, { screen: string; status: string }> = {
   idle: { screen: "TOUCH TO START", status: "Hover your card over the reader." },
   near: { screen: "HOLD STEADY", status: "Bring it in, then click to tap." },
   go: { screen: "READING", status: "Reading your card..." },
-  ok: { screen: "TAP ACCEPTED!", status: "Logged in! Opening the Discord..." },
+  ok: { screen: "CARD ACCEPTED!", status: "Logged in! Opening the Discord..." },
 };
 
 export default function TapScene({ discordUrl }: { discordUrl: string }) {
