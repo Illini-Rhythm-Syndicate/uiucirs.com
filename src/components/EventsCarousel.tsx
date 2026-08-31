@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FaArrowLeft, FaArrowRight, FaLocationDot } from "react-icons/fa6";
 
 export interface EventCard {
   title: string;
   description: string;
   date: string;
   time?: string;
+  location?: string;
 }
 
 const GAP = 24;
@@ -78,6 +79,12 @@ export default function EventsCarousel({ events }: { events: EventCard[] }) {
               {event.time ? ` @ ${event.time}` : ""}
             </span>
             <h3 className="font-display text-xl sm:text-2xl font-bold">{event.title}</h3>
+            {event.location && (
+              <span className="font-body flex items-center gap-1.5 text-sm text-irs-brown sm:text-base">
+                <FaLocationDot className="size-3.5 shrink-0 sm:size-4" aria-hidden="true" />
+                {event.location}
+              </span>
+            )}
             <p className="font-body text-sm sm:text-base">{event.description}</p>
           </div>
         ))}

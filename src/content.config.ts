@@ -9,6 +9,7 @@ const events = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     time: z.string().optional(),
+    location: z.string().optional(),
   }),
 });
 
