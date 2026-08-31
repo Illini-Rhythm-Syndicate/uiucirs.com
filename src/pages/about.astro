@@ -4,23 +4,52 @@ import Tagline from "../components/Tagline.astro";
 ---
 
 <Layout>
-  <div class="flex flex-col items-start gap-5 py-14 sm:gap-6 sm:py-20 lg:py-24">
+  <div
+    class="flex flex-col items-start gap-5 py-14 sm:gap-6 sm:py-20 lg:py-24 max-w-4xl"
+  >
     <Tagline text="ABOUT US" />
     <h1
       class="font-display text-3xl font-bold sm:text-4xl lg:text-6xl 2xl:text-7xl"
     >
-      A club built around the rotation.
+      Rhythm Games @ UIUC
     </h1>
-    <p class="font-body text-base max-w-2xl sm:text-lg lg:text-xl">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat.
+    <p class="font-body text-base sm:text-lg lg:text-xl">
+      Illini Rhythm Syndicate (IRS) is a registered student organization at the
+      University of Illinois Urbana-Champaign that serves the arcade and mobile
+      rhythm gaming community. Our club has two main missions:
     </p>
-    <p class="font-body text-base max-w-2xl sm:text-lg lg:text-xl">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <ol
+      class="font-body list-decimal space-y-1 pl-6 text-base sm:text-lg lg:text-xl"
+    >
+      <li>
+        To foster a vibrant and welcoming environment for new and experienced
+        rhythm game players alike.
+      </li>
+      <li>
+        To provide access to arcade rhythm games that are not readily available
+        in campustown or the greater North America region.
+      </li>
+    </ol>
+    <p class="font-body text-base sm:text-lg lg:text-xl">
+      Originally founded in late 2023 as a branch of <a
+        href="https://ddrillini.club/"
+        target="_blank"
+        class="font-semibold text-irs-navy underline decoration-2 underline-offset-2 transition hover:text-irs-cyan-deep"
+        >DDRIllini</a
+      >, our community has since grown to become an independent RSO with over
+      500 Discord members, hosting regular freeplays, tournaments, and arcade
+      trips. Outside of recreational events, we also organize multiple
+      engineering projects a semester, where students of all backgrounds can
+      learn hands-on engineering skills such as computer-aided design,
+      electronics, and programming through designing and building arcade rhythm
+      game cabinets. Our controllers have been featured at various campus-wide
+      events, such as <a
+        href="https://www.ui-con.org/"
+        target="_blank"
+        class="font-semibold text-irs-navy underline decoration-2 underline-offset-2 transition hover:text-irs-cyan-deep"
+        ><i>UI-CON</i></a
+      >, Champaign-Urbana's Anime Convention, and <i>Rumble in the Prairie</i>,
+      an annual dance game tournament hosted by DDRIllini.
     </p>
   </div>
 </Layout>
