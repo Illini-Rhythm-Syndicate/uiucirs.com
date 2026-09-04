@@ -5,6 +5,7 @@ import MascotSticker from "./MascotSticker.astro";
 import ScallopBand from "./ScallopBand.astro";
 import irisMaimai from "../assets/iris-maimai.png";
 import irisOngeki from "../assets/iris-ongeki.png";
+import { SITE } from "../data/site";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -17,16 +18,44 @@ const today = new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/Chicago",
 }).format(new Date());
 
-const events = (await getCollection("events"))
+const upcoming = (await getCollection("events"))
   .filter((event) => event.data.date.toISOString().slice(0, 10) >= today)
-  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
-  .map((event) => ({
-    title: event.data.title,
-    description: event.data.description,
-    date: dateFormatter.format(event.data.date),
-    time: event.data.time,
-    location: event.data.location,
-  }));
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+const events = upcoming.map((event) => ({
+  title: event.data.title,
+  description: event.data.description,
+  date: dateFormatter.format(event.data.date),
+  time: event.data.time,
+  location: event.data.location,
+}));
+
+// Event structured data so upcoming events can surface directly in search.
+const eventsSchema = upcoming.map((event) => ({
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: event.data.title,
+  description: event.data.description,
+  startDate: event.data.date.toISOString().slice(0, 10),
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  organizer: {
+    "@type": "Organization",
+    name: SITE.name,
+    alternateName: SITE.shortName,
+    url: Astro.site?.href,
+  },
+  location: {
+    "@type": "Place",
+    name: event.data.location ?? SITE.university,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Urbana",
+      addressRegion: "IL",
+      addressCountry: "US",
+    },
+  },
+}));
 ---
 
 <ScallopBand>
@@ -63,3 +92,12 @@ const events = (await getCollection("events"))
     }
   </div>
 </ScallopBand>
+
+{
+  eventsSchema.length > 0 && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(eventsSchema)}
+    />
+  )
+}

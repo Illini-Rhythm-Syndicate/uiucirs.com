@@ -3,6 +3,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   vite: {
@@ -24,7 +25,11 @@ export default defineConfig({
     },
   ],
 
-  integrations: [react()],
-  
+  integrations: [
+    react(),
+    // Exclude freeplays page until it's finished
+    sitemap({ filter: (page) => !page.includes("/freeplays") }),
+  ],
+
   site: 'https://uiucirs.com',
 });

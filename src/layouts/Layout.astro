@@ -4,6 +4,48 @@ import { Font } from "astro:assets";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { withBase } from "../utils/paths";
+import { SITE } from "../data/site";
+import logo from "../assets/logo.png";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title, description = SITE.description, noindex = false } = Astro.props;
+
+const pageTitle = title
+  ? `${title} | ${SITE.titleSuffix}`
+  : `${SITE.titleSuffix} — UIUC's Rhythm Game Club`;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(logo.src, Astro.site).href;
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE.name,
+  alternateName: ["IRS", "UIUC IRS", "Illini Rhythm Syndicate (IRS)"],
+  description: SITE.description,
+  url: new URL(withBase("/"), Astro.site).href,
+  logo: ogImage,
+  sameAs: [SITE.discord],
+  parentOrganization: {
+    "@type": "CollegeOrUniversity",
+    name: SITE.university,
+    url: "https://illinois.edu/",
+  },
+  location: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Urbana",
+      addressRegion: "IL",
+      addressCountry: "US",
+    },
+  },
+};
 ---
 
 <html lang="en">
@@ -13,17 +55,36 @@ import { withBase } from "../utils/paths";
     <link rel="icon" href={withBase("/favicon.ico")} sizes="any" />
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />
-    <title>Illini Rhythm Syndicate</title>
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.titleSuffix} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+
+    <slot name="head" />
   </head>
   <body
     class="flex min-h-dvh flex-col overflow-x-hidden bg-irs-paper text-irs-ink"
   >
     <Header />
-    <div
+    <main
       class="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-5 sm:px-8 xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-360"
     >
       <slot />
-    </div>
+    </main>
     <Footer />
   </body>
 </html>
