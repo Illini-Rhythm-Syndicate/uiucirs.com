@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Illini Rhythm Syndicate",
   shortName: "IRS",
-  titleSuffix: "Illini Rhythm Syndicate (IRS)",
+  titleSuffix: "UIUC IRS",
   description:
     "Illini Rhythm Syndicate (IRS) is UIUC's rhythm game club.",
   university: "University of Illinois Urbana-Champaign",

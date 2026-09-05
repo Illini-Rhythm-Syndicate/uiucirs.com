@@ -17,7 +17,7 @@ const { title, description = SITE.description, noindex = false } = Astro.props;
 
 const pageTitle = title
   ? `${title} | ${SITE.titleSuffix}`
-  : `${SITE.titleSuffix} — UIUC's Rhythm Game Club`;
+  : "Illini Rhythm Syndicate (IRS)";
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(logo.src, Astro.site).href;
@@ -26,7 +26,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: SITE.name,
-  alternateName: ["IRS", "UIUC IRS", "Illini Rhythm Syndicate (IRS)"],
+  alternateName: ["IRS", "UIUC IRS", "Illini Rhythm Syndicate"],
   description: SITE.description,
   url: new URL(withBase("/"), Astro.site).href,
   logo: ogImage,
